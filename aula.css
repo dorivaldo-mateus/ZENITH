@@ -1,0 +1,219 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  background: linear-gradient(to right, #0f172a, #1e293b);
+  color: #cccccc;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 10px;
+  text-wrap: wrap;
+  word-break: break-word; 
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; 
+  overflow-x: auto;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #4F46E5;
+  filter: blur(120px);
+  opacity: 0.3;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+h2{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+input{
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 18px;
+  outline: none;
+  color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(100px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+input:focus{
+  transform: scale(1.05);
+}
+button{
+  padding: 8px 12px;
+  background: #4F46E5;
+  border: none;
+  border-radius: 13px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+button:hover{
+  background: none;
+  border: 2px solid #4F46E5;
+}
+.processando{
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-left: 5px solid transparent;
+  border-radius: 50%;
+  background: none;
+  animation: processar 1.5s infinite ease-in-out;
+}
+@keyframes processar{
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+  transform: rotate(360deg);
+  }
+}
+#resultado{
+  position: relative;
+  padding: 0 5px;
+  max-width: 360px;
+  width: 90%;
+  text-wrap: wrap;
+}
+.conteudo {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 20px auto;
+  padding: 24px 26px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  line-height: 1.7;
+
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+
+  animation: showIn 0.4s ease-out;
+}
+
+@keyframes showIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.conteudo {
+  font-size: 1rem;
+}
+
+.conteudo p {
+  margin: 10px 0;
+}
+
+.conteudo h1,
+.conteudo h2,
+.conteudo h3 {
+  margin: 18px 0 10px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.conteudo strong {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+.conteudo ul {
+  padding-left: 18px;
+  margin: 10px 0;
+}
+
+.conteudo li {
+  margin: 6px 0;
+  position: relative;
+}
+
+.conteudo li::marker {
+  color: #7dd3fc;
+}
+
+.conteudo code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.conteudo hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 16px 0;
+}
+
+.conteudo {
+  scroll-behavior: smooth;
+}
+.conteudo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+
+  background: radial-gradient(
+    circle at top left,
+    rgba(125, 211, 252, 0.08),
+    transparent 60%
+  );
+
+  pointer-events: none;
+}
+
+.btn-copy {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #64748b;
+  transition: 0.2s;
+}
+
+.btn-copy:hover {
+  color: #4F46E5; /* Cor do seu botão quando passa o mouse */
+}
