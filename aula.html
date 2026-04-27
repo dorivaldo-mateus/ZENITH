@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenith — Criar Aula</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="aula.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-icon"></div>
+      <h2>Criar Aula com Zenith</h2>
+      <p class="header-sub">Gere aulas completas com o seu Professor Virtual em segundos</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+
+      <!-- Tema -->
+      <div class="field-group">
+        <label for="tema"><i class="fa-solid fa-book-open"></i> Tema da Aula</label>
+        <input id="tema" placeholder="Ex: Equações do 2º grau" maxlength="120" autofocus>
+        <span class="char-count" id="temaCount">0/120</span>
+        <span class="field-error" id="temaError">Campo obrigatório</span>
+      </div>
+
+      <div class="row-fields">
+        <div class="field-group half">
+          <label for="nivel"><i class="fa-solid fa-layer-group"></i> Classe</label>
+          <input id="nivel" placeholder="Ex: 10ª">
+          <span class="field-error" id="nivelError">Obrigatório</span>
+        </div>
+        <div class="field-group half">
+          <label for="curso"><i class="fa-solid fa-graduation-cap"></i> Curso</label>
+          <input id="curso" placeholder="Ex: Ciências">
+          <span class="field-error" id="cursoError">Obrigatório</span>
+        </div>
+      </div>
+
+      <!-- Duração e Idioma em linha -->
+      <div class="row-fields">
+        <div class="field-group half">
+          <label for="duracao"><i class="fa-regular fa-clock"></i> Duração</label>
+          <select id="duracao">
+            <option value="30">30 minutos</option>
+            <option value="45" selected>45 minutos</option>
+            <option value="60">1 hora</option>
+            <option value="90">1h 30min</option>
+            <option value="120">2 horas</option>
+          </select>
+        </div>
+        <div class="field-group half">
+          <label for="idioma"><i class="fa-solid fa-globe"></i> Idioma</label>
+          <select id="idioma">
+            <option value="Português" selected>🇧🇷 Português</option>
+            <option value="Inglês">🇬🇧 Inglês</option>
+            <option value="Francês">🇫🇷 Francês</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Nível de profundidade -->
+      <div class="field-group">
+        <label><i class="fa-solid fa-sliders"></i> Nível de profundidade</label>
+        <div class="depth-options">
+          <button type="button" class="depth-btn active" data-value="basico">Básico</button>
+          <button type="button" class="depth-btn" data-value="intermediario">Intermédio</button>
+          <button type="button" class="depth-btn" data-value="avancado">Avançado</button>
+        </div>
+      </div>
+
+      <!-- Opções extras -->
+      <div class="field-group">
+        <label><i class="fa-solid fa-puzzle-piece"></i> Incluir na aula</label>
+        <div class="extras-options">
+          <label class="toggle-option">
+            <input type="checkbox" id="optExemplos" checked>
+            <span class="toggle-label">Exemplos resolvidos</span>
+          </label>
+          <label class="toggle-option">
+            <input type="checkbox" id="optExercicios" checked>
+            <span class="toggle-label">Exercícios</span>
+          </label>
+          <label class="toggle-option">
+            <input type="checkbox" id="optTarefa" checked>
+            <span class="toggle-label">Tarefa de casa</span>
+          </label>
+          <label class="toggle-option">
+            <input type="checkbox" id="optDica">
+            <span class="toggle-label">Dicas de estudo</span>
+          </label>
+          <label class="toggle-option">
+            <input type="checkbox" id="optCuriosidade">
+            <span class="toggle-label">Curiosidade do tema</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Botão Gerar -->
+      <button id="btnGerar" class="btn-gerar">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Gerar Aula
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-area" id="loadingArea" style="display:none">
+      <div class="processar processando"></div>
+      <p class="loading-text" id="loadingText">Zenith está a preparar a sua aula...</p>
+    </div>
+
+    <!-- Resultado -->
+    <div id="resultado"></div>
+
+    <!-- Histórico -->
+    <div class="historico-section" id="historicoSection" style="display:none">
+      <div class="historico-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> Histórico de Aulas</h3>
+        <button class="btn-limpar-hist" id="btnLimparHist">
+          <i class="fa-solid fa-trash"></i> Limpar
+        </button>
+      </div>
+      <div id="historicoLista"></div>
+    </div>
+
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

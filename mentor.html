@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mentor.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <div class="apresentacao">
+      <h3>ZENITH MENTOR</h3>
+      <p>Diagnóstico académico inteligente.<br>Plano de evolução personalizado.</p>
+    </div>
+
+    <div class="dadosDoUsuario">
+      <h2>INSIRA SEUS DADOS</h2>
+      <input type="text" id="nome" placeholder="NOME" required>
+      <input type="text" id="classe" placeholder="CLASSE" required>
+      <input type="text" id="curso" placeholder="CURSO" required>
+      <input type="text" id="objetivo" placeholder="OBJETIVO (opcional)">
+    </div>
+    <div id="disciplinas"></div>
+    <button id="addSubjects">+ Adicionar Disciplinas</button>
+
+    <!-- questionários mantidos -->
+    <!-- ... -->
+    
+    <div style="display: flex; gap: 10px;">
+      <button class="enviar">Analisar</button>
+      <button id="limparBtn" class="enviar" style="background: transparent; border: 1px solid #4F46E5;">Limpar</button>
+    </div>
+
+    <p id="status"></p>
+    <div class="answer"></div>
+
+    <div id="dashboard">
+      <div id="stats"></div>
+      <div id="grafico">
+        <div class="bars"></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="mentor.js"></script>
+</body>
+</html>
